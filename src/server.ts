@@ -1,7 +1,12 @@
+import dotenv from "dotenv";
+import path from 'path'
+dotenv.config({ path: path.join(process.cwd(), 'config.env') });
+
 import mongoose from "mongoose";
 import app from "./app";
 
-const MONGO_URI = "mongodb://localhost:27017/testdb";
+
+const MONGO_URI: string = process.env.DATABASE_LOCAL as string;
 
 async function start() {
   try {
